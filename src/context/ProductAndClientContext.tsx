@@ -12,21 +12,29 @@ interface IProductClient {
   record: any;
   config: any;
   setId: React.Dispatch<React.SetStateAction<string>>;
-  getProduct: () => void;
+  setMetadata: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const ProductClientContext = createContext<IProductClient>(
   {} as IProductClient
 );
 
-export const ProductClientProvider = (children: any) => {
+interface IProductClientContextProps {
+  children: React.ReactNode;
+}
+
+export const ProductClientProvider: FC<IProductClientContextProps> = (
+  props
+) => {
   const [id, setId] = useState<string>("");
   const [metadata, setMetadata] = useState<any>(null);
-  const [record, setRecord] = useState<any>(null);
-  const [config, setConfig] = useState<any>(null);
+  const [record, setRecord] = useState<any>({});
+  const [config, setConfig] = useState<any>({});
 
   useEffect(() => {
-    if (metadata?.records.length > 0) {
+    if (metadata?.records) {
+      console.log(metadata);
+
       if (metadata.records[0]["fields"]) {
         setRecord(metadata.records[0]["fields"]);
       }
@@ -34,12 +42,15 @@ export const ProductClientProvider = (children: any) => {
   }, [metadata]);
 
   useEffect(() => {
-    if (record) {
-      setConfig(getClientData(record?.ClientsName[0]));
+    if (record.Name) {
+      getClientData(record?.ClientsName[0], setConfig);
     }
   }, [record]);
 
-  const getProduct = () => {
+  useEffect(() => {
+    if (id === "") return;
+    console.log(id);
+
     let location = window.location;
     let urlParams;
     let productId;
@@ -57,22 +68,21 @@ export const ProductClientProvider = (children: any) => {
       : urlParams && urlParams.length === 2
       ? (productId = urlParams.slice(1, 2))
       : (productId = undefined);
-
     productId
-      ? setMetadata(getProductData(productId))
-      : setMetadata(getProductData(id));
-  };
+      ? getProductData(productId, setMetadata)
+      : getProductData(id, setMetadata);
+  }, [id]);
 
   const productClientContextValue = {
     record,
     config,
     setId,
-    getProduct,
+    setMetadata,
   };
 
   return (
     <ProductClientContext.Provider value={productClientContextValue}>
-      {children}
+      {props.children}
     </ProductClientContext.Provider>
   );
 };

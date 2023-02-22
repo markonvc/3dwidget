@@ -1,7 +1,7 @@
 interface thumbnailsDimentions {
-    height: number,
-    url: string,
-    width: number
+  height: number;
+  url: string;
+  width: number;
 }
 
 interface imageThumbnails {
@@ -11,22 +11,21 @@ interface imageThumbnails {
 }
 
 interface Images {
-    filename: string,
-    height: number,
-    id: string,
-    size: number,
-    thumbnails: imageThumbnails,
-    type: string,
-    url: string,
-    width: number
-
+  filename: string;
+  height: number;
+  id: string;
+  size: number;
+  thumbnails: imageThumbnails;
+  type: string;
+  url: string;
+  width: number;
 }
 
-interface ClientData {
+export interface ClientData {
   Clients: string[];
   ClientsName: string[];
   Collections: string;
-  Created: string,
-  GLB: string,
-  Images: 
+  Created: string;
+  GLB: string;
+  Images: Images;
 }
