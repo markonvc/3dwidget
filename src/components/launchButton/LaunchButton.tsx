@@ -4,7 +4,7 @@ import { WidgetContext } from "../../context/WidgetContext";
 
 const LaunchButton = () => {
   const { setId } = useContext(ProductClientContext);
-  const { setShowWidget } = useContext(WidgetContext);
+  const { showWidget, setShowWidget } = useContext(WidgetContext);
 
   useEffect(() => {
     setId("66");
@@ -15,7 +15,7 @@ const LaunchButton = () => {
       <button
         id="getPlop"
         className="get_plop"
-        onClick={() => setShowWidget(true)}
+        onClick={() => setShowWidget(!showWidget)}
       >
         press
       </button>
