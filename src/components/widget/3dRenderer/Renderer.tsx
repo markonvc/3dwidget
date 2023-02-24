@@ -5,8 +5,6 @@ import "./Render.scss";
 
 function Renderer() {
   useEffect(() => {
-    console.log("render");
-
     Viewer3D.createScene();
   }, []);
 

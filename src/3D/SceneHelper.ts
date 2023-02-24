@@ -2,11 +2,12 @@ import * as THREE from "three";
 import Renderer from "./3dUtils/InitializeRendererHelter";
 import Light from "./3dUtils/LightHelper";
 import Camera from "./3dUtils/CameraHelper";
+import ConfigureModel from "./3dUtils/ConfigureModel";
 // import Ground from "./3dUtils/GroundHelper";
 // import Store from "../store/Store";
 
 class Viewer3D {
-  createScene() {
+  createScene(model: any) {
     const element = document.querySelector(".canvas");
     const canvas = element!;
     const scene = new THREE.Scene();
@@ -21,6 +22,8 @@ class Viewer3D {
     Light.addLight(scene);
 
     // Ground.loadGround(scene);
+
+    ConfigureModel(model, scene);
 
     function animate() {
       requestAnimationFrame(animate);
