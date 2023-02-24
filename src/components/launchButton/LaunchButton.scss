@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Helvetica Neue Light";
+  src: url("https://get-plop.s3.eu-west-1.amazonaws.com/plop/widget/assets/fonts/HelveticaNeue/HelveticaNeueLt.ttf")
+    format("OpenType");
+  font-style: normal;
+}
+
+.get_plop {
+  margin: 0;
+  opacity: 0;
+  position: fixed;
+  bottom: 16px !important;
+  left: 20px;
+  width: 78px;
+  height: 78px;
+  display: inline-block;
+  border-radius: 50px;
+  border-color: #000000;
+  border: 3px solid;
+  background-color: #ffffff;
+  background-image: url(https://get-plop.s3.eu-west-1.amazonaws.com/images/giphIcon.gif);
+  background-position: center;
+  background-size: 46.4px 46.4px;
+  background-repeat: no-repeat;
+  z-index: 2147483009;
+  cursor: pointer;
+}
+
+.get_plop:focus {
+  border: 3px solid !important;
+}
+
+.get_plop_open {
+  margin: 0;
+  opacity: 0;
+  position: fixed;
+  bottom: 16px !important;
+  left: 20px;
+  width: 78px;
+  height: 78px;
+  display: inline-block;
+  border-radius: 50px;
+  border-color: #000000;
+  border: 3px solid;
+  background-image: url(https://get-plop.s3.eu-west-1.amazonaws.com/plop/test/close.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 72px 72px;
+  transition: width 0.3s ease-in;
+  z-index: 2147483009;
+  cursor: pointer;
+}
+
+.get_plop_extanded {
+  width: auto;
+  height: 50px;
+  padding: 0 12px 0 20px;
+  background-position: 10px;
+  background-size: 30px;
+  background-color: #ffffff;
+  color: black;
+  font-weight: lighter !important;
+  font-size: 16px !important;
+  font-family: "Helvetica Neue Light" !important;
+  text-align: end;
+  text-transform: capitalize;
+  z-index: 3147483009;
+}
+
+.viewInSpacePopUpContainer {
+  margin: 0;
+  opacity: 1;
+  position: fixed;
+  bottom: 77px;
+  left: 10px;
+  padding: 10px 15px;
+  background: white;
+  z-index: 3147483009;
+  border: none;
+  border-radius: 22px;
+  filter: drop-shadow(0px 0.5px 2px grey);
+  cursor: pointer;
+}
+
+.viewInSpacePopMessage {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  text-transform: capitalize;
+  font-family: "Helvetica Neue Light";
+  font-size: 12px;
+  text-align: center;
+  border: none;
+}
+
+@media (max-width: 450px) {
+  .get_plop {
+    width: 62px;
+    height: 62px;
+    background-size: 40px 40px;
+    line-height: 16px;
+  }
+
+  .get_plop_open {
+    display: none;
+  }
+
+  .get_plop_extanded {
+    width: auto;
+    height: 40px;
+    padding: 0 12px 0 14px;
+    background-position: 8px;
+    background-size: 25px;
+    font-size: 12px;
+  }
+
+  .viewInSpacePopUpContainer {
+    bottom: 67px;
+    padding: 8px 13px;
+  }
+
+  .viewInSpacePopMessage {
+    font-size: 10px;
+  }
+}

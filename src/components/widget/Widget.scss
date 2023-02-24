@@ -1,0 +1,13 @@
+.get_plop_modal {
+  position: fixed;
+  bottom: 136px;
+  left: 20px;
+  height: 704px;
+  width: 400px;
+  background-color: white !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 3147483009;
+  border-radius: 8px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
